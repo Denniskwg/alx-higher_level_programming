@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-string = {'number': 98, 'text': 'Battery street'}
-print(f"{string['number']} {string['text']}")
+number = 98
+print(f"{number} Battery street")
