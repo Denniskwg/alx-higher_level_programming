@@ -1,1 +1,1 @@
-# This epository contains all python projects done during the curriculum
+# This Repository contains all python projects done during the curriculum
