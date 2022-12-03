@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 /**
  * check_cycle - checks if a linked list has a cycle
  * @list: pointer to the start of a linked list
@@ -6,24 +7,19 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *current;
-	listint_t *temp;
+	listint_t *slow;
+	listint_t *fast;
 
-	current = list;
-	while (current != NULL)
+	if (list == NULL)
+		return (0);
+	slow = list->next;
+	fast = list->next;
+	while (slow != NULL && fast != NULL && fast->next)
 	{
-		temp = list->next;
-		while (temp != list && temp != NULL)
-		{
-			if (temp->next == current)
-				return (1);
-			temp = temp->next;
-		}
-		if (temp == list)
+		slow = slow->next;
+		fast = fast->next->next;
+		if (fast == slow)
 			return (1);
-		if (temp == NULL)
-			return (0);
-		current = current->next;
 	}
 	return (0);
 }
