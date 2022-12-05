@@ -11,7 +11,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *prev, *current, *ptr = NULL;
 	int i = 0;
-	int n[100];
+	int n[20];
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
@@ -29,7 +29,7 @@ int is_palindrome(listint_t **head)
 		current->next = prev;
 		if (prev == *head)
 			prev->next = NULL;
-		if (ptr == NULL || ptr == prev)
+		if (ptr == NULL)
 		{
 			n[i] = current->n;
 			break;
