@@ -10,11 +10,19 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *prev, *current, *ptr = NULL;
-	int i = 0;
+	int i = 0, size = 0, j = 0;
 	int n[20];
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
+	current = *head;
+	while (current != NULL)
+	{
+		size++;
+		current = current->next;
+	}
+	if (size % 2 != 0)
+		return (0);
 	current = *head;
 	while (current != NULL)
 	{
@@ -36,12 +44,11 @@ int is_palindrome(listint_t **head)
 		}
 	}
 	*head = current;
-	i = 0;
 	while (current != NULL)
 	{
-		if (current->n != n[i])
+		if (current->n != n[j])
 			return (0);
-		i++;
+		j++;
 		current = current->next;
 	}
 	return (1);
