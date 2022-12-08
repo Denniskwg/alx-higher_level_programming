@@ -6,12 +6,7 @@ def roman_to_int(roman_string):
         if len(roman_string) == 2 and subtractive(roman_string, numerals):
             num = numerals.get(roman_string[1]) - numerals.get(roman_string[0])
         elif len(roman_string) > 2 and subtractive(roman_string, numerals):
-            num = numerals.get(roman_string[-1]) - numerals.get(roman_string[-2])
-            for i in range(len(roman_string) - 2):
-                if numerals.get(roman_string[i]):
-                    num += numerals.get(roman_string[i])
-                else:
-                    continue
+            num = calculate_integer(roman_string, numerals)
         else:
             for i in roman_string:
                 if numerals.get(i):
@@ -29,3 +24,23 @@ def subtractive(string, rom):
         return True
     else:
         return False
+
+def calculate_integer(string, rom):
+    num = 0
+    index_length = len(string) - 1
+    j = 0
+    i = 0
+    while i < len(string):
+        if rom.get(string[i]):
+            j = i + 1
+            if i != index_length:
+                if rom.get(string[i]) < rom.get(string[j]):
+                    num += (rom.get(string[j]) - rom.get(string[i]))
+                    if index_length % 2 == 0:
+                        i = i + 1
+                else:
+                    num += rom.get(string[i])
+        else:
+            continue
+        i += 1
+    return num
