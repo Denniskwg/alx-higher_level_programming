@@ -9,7 +9,3 @@ def safe_print_list(my_list=[], x=0):
         return i
     except IndexError:
         return i
-
-
-my_list = [1, 2, 3, 4, 5]
-safe_print_list(my_list, 5)
