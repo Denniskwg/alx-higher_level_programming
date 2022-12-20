@@ -8,7 +8,6 @@ Methods Getter and Setter properties for size and position.
 Method area returns size of area of the square.
 Method my_print prints the square using "#", moved over left and top using
 position tuple.
-
 """
 
 
@@ -17,7 +16,6 @@ class Square:
     Also defines position using a tuple, which defaults (0, 0).
     Square can also get area, and print square using '#'.
     When printing, using position, offset on top and left.
-
     """
     def __init__(self, size=0, position=(0, 0)):
         self.__position = position
