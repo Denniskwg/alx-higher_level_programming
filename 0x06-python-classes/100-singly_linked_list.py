@@ -66,7 +66,7 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         if self.__head is None:
             self.__head = Node(value)
-        elif value < self.__head.data:
+        elif value <= self.__head.data:
             node = self.__head
             self.__head = Node(value, node)
         else:
