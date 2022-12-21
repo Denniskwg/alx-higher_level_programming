@@ -29,7 +29,8 @@ class Square:
         else:
             for i in self.__position:
                 if type(i) is not int or i < 0:
-                    raise TypeError("position must be a tuple of 2 positive integers")
+                    raise TypeError\
+                        ("position must be a tuple of 2 positive integers")
 
     def area(self):
         return self.__size ** 2
@@ -41,11 +42,13 @@ class Square:
     @position.setter
     def position(self, value):
         if len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
+            raise TypeError\
+                ("position must be a tuple of 2 positive integers")
         else:
             for i in value:
                 if type(i) is not int or i < 0:
-                    raise TypeError("position must be a tuple of 2 positive integers")
+                    raise TypeError\
+                        ("position must be a tuple of 2 positive integers")
         self.__position = value
 
     @property
