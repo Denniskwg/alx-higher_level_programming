@@ -22,7 +22,7 @@ class Node:
             raise TypeError("data must be an integer")
         self.__next_node = next_node
         if not type(self.__next_node) is Node\
-            and not type(self.__next_node) is None:
+            and type(self.__next_node) is None:
             raise TypeError("next_node must be a Node object")
 
     @property
