@@ -19,8 +19,8 @@ int is_palindrome(listint_t **head)
 	
 	while (current != NULL)
 	{
-		current = current->next;
 		j++;
+		current = current->next;
 	}
 	n = malloc(sizeof(int) * j);
 	if (n == NULL)
