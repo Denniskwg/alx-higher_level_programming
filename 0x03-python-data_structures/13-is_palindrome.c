@@ -30,6 +30,7 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 		i++;
 	}
+
 	current = *head;
 	i--;
 	while (current != NULL)
