@@ -11,10 +11,18 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current;
 	int i = 0;
-	int n[20];
+	int n[size];
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
+	current = *head;
+	while (current != NULL)
+	{
+		i++;
+		current = current->next;
+	}
+	size = i;
+	i = 0;
 	current = *head;
 	while (current != NULL)
 	{
