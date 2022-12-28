@@ -1,46 +1,73 @@
-#include "lists.h"
-#include <stdlib.h>
+#include <stdlob.h>
 #include <stdio.h>
+#include <lists.h>
 /**
- * is_palindrome - checks if a singly linked list
- * is a palindrome
- * @head: pointer to first node of a singly linked list
+ * is_palindrome - checks if a singly linked list is
+ * a palindrome
+ * @head: pointer to start of a linked list
  * Return: 0 if not palindrome 1 if palindrome
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *current;
-	int i = 0, j = 0;
-	int *n;
+	listint_t *current, *temp, *new;
+	int i = 0, j;
 
-	if (*head == NULL || (*head)->next == NULL)
-		return (1);
-	current = *head;
-	
-	while (current != NULL)
-	{
-		j++;
-		current = current->next;
-	}
-	n = malloc(sizeof(int) * j);
-	if (n == NULL)
-		return (0);
 	current = *head;
 	while (current != NULL)
 	{
-		n[i] = current->n;
-		current = current->next;
 		i++;
-	}
-	current = *head;
-	i--;
-	while (current != NULL)
-	{
-		if (current->n != n[i])
-			return (0);
-		i--;
 		current = current->next;
 	}
-	free(n);
-	return (1);
+	i = i / 2;
+	current = *head;
+	while (i > 1)
+	{
+		current = current->next;
+		i--;
+	}
+	temp = current->next;
+	current->next = NULL;
+	if (i % 2 == 0)
+		new = temp;
+	else
+		new = temp->next;
+	reverse(head);
+	current = *head;
+	while (current != NULL)
+	{
+		if (current->n != new->n)
+		{
+			j = 0;
+			break;
+		}
+		current = current->next;
+		new = new->next;
+		j = 1;
+	}
+	reverse(head);
+	current = *head;
+	while (current != NULL)
+		current = current->next;
+	current->next = temp;
+	return (j);
+}
+
+/**
+ * reverse - reverses a linked list
+ * @head - pointer to the start of a linked list
+ */
+void reverse(listint_t **head)
+{
+	listint_t *current, *next, *prev;
+
+	prev = NULL;
+	current = *head;
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
 }
