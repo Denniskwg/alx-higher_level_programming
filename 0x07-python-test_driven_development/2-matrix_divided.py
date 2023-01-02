@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""2-matrix_divided module
+"""This is the "2-matrix_divided" module
 
 function matrix_divided takes a matrix(list of lists) and a number 'div' and
 divides each number in the lists with div
