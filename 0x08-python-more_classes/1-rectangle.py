@@ -1,8 +1,12 @@
 #!/usr/bin/python3
-"""1-rectangle
-
-This module defines a class Rectangle that defines a rectangle
 """
+This is the "Rectangle" module
+
+This module defines a class Rectangle with attributes width and height.
+Default values of both attributes are 0.
+"""
+
+
 class Rectangle:
     """A simple rectangle class"""
     def __init__(self, width=0, height=0):
