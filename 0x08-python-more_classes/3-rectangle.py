@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """3-rectangle
 
-This module defines a class Rectangle that defines a rectangle class
+This module defines a class Rectangle that defines a rectangle class.
 """
 
 
 class Rectangle:
-    """Defines a rectangle"""
+    """Rectangle class with width, height attributes and methods
+    area, perimeter, print, and str.
+    """
     def __init__(self, width=0, height=0):
         if type(width) != int:
             raise TypeError("width must be an integer")
