@@ -9,31 +9,27 @@ def matrix_divided(matrix, div):
     """Returns a new matrix where each list member of the matrix
     is divided by div rounded to 2 decimal places
     """
-    try:
-        if type(matrix[0]) != list:
-            raise TypeError("matrix must be a matrix (list of lists) \
+    if type(matrix[0]) != list:
+        raise TypeError("matrix must be a matrix (list of lists) \
 of integers/floats")
-        length = len(matrix[0])
-        if type(matrix) != list:
-            raise TypeError("matrix must be a matrix (list of lists) \
+    length = len(matrix[0])
+    if type(matrix) != list:
+        raise TypeError("matrix must be a matrix (list of lists) \
 of integers/floats")
 
-        for l in matrix:
-            if len(l) != length:
-                raise TypeError("Each row of the matrix must have \
+    for l in matrix:
+        if len(l) != length:
+            raise TypeError("Each row of the matrix must have \
 the same size")
 
-        for l in matrix:
-            for i in range(length):
-                if type(l[i]) != int and type(l[i]) != float:
-                    raise TypeError("matrix must be a matrix (list of lists) \
+    for l in matrix:
+        for i in range(length):
+            if type(l[i]) != int and type(l[i]) != float:
+                raise TypeError("matrix must be a matrix (list of lists) \
 of integers/floats")
 
-        if type(div) != int and type(div) != float:
-            raise TypeError("div must be a number")
-        if div == 0:
-            raise ZeroDivisionError("division by zero")
-    except Exception as e:
-        print(e)
-    else:
-        return [[round(l[i] / div, 2) for i in range(length)] for l in matrix]
+    if type(div) != int and type(div) != float:
+        raise TypeError("div must be a number")
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+    return [[round(l[i] / div, 2) for i in range(length)] for l in matrix]

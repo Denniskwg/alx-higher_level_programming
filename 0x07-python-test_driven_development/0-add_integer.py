@@ -9,16 +9,12 @@ def add_integer(a, b=98):
     """Returns the sum of a and b
     if either a or b are floats they are cast to int
     """
-    try:
-        if type(a) != int and type(a) != float:
-            raise TypeError("a must be an integer")
-        elif type(a) == float:
-            a = int(a)
-        if not isinstance(b, int) and not isinstance(b, float):
-            raise TypeError("b must be an integer")
-        elif type(b) == float:
-            b = int(b)
-    except Exception as e:
-        print(e)
-    else:
-        return a + b
+    if type(a) != int and type(a) != float:
+        raise TypeError("a must be an integer")
+    if type(a) == float:
+        a = int(a)
+    if type(b) != int and type(b) != float:
+        raise TypeError("b must be an integer")
+    if type(b) == float:
+        b = int(b)
+    return a + b
