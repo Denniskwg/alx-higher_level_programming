@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""0-rectangle
+"""1-rectangle
 
 This module defines a class Rectangle that defines a rectangle
 """
 class Rectangle:
-    """Defines a rectangle"""
+    """A simple rectangle class"""
     def __init__(self, width=0, height=0):
         if type(width) != int:
             raise TypeError("width must be an integer")
