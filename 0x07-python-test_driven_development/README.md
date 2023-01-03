@@ -1,2 +1,2 @@
 # Python - Test-driven development
-- Writing tests using doctest module
+- Writing interactive tests and using the unittest module
