@@ -3,8 +3,6 @@
 
 This module defines a class Rectangle that defines a rectangle class
 """
-
-
 class Rectangle:
     """Defines a rectangle"""
     def __init__(self, width=0, height=0):
@@ -77,3 +75,6 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = value
+
+    def __del__(self):
+        print("Bye rectangle...")
