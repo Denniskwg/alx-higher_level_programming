@@ -27,8 +27,6 @@ class Rectangle:
             return 0
         else:
             return (self.__width + self.__height) * 2
-    def __repr__(self):
-        return "<3-rectangle.Rectangle object at {}>".format(hex(id(self)))
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             print("")
