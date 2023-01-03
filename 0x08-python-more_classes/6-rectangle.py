@@ -22,7 +22,7 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = height
-        number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     def area(self):
         """Returns area of a rectangle"""
@@ -82,5 +82,5 @@ class Rectangle:
             self.__height = value
 
     def __del__(self):
-        number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
