@@ -10,7 +10,7 @@ class Testmaxinteger(unittest.TestCase):
         self.l = [1, 2, 3, 4]
         self.t = (1, 3, 4, 9)
 
-    def max_integer(self):
+    def text_max_integer(self):
         self.assertEqual(max_integer(self.l), 4)
     def test_empty_list(self):
         self.assertEqual(max_integer([]), None)
