@@ -25,6 +25,9 @@ class Testmaxinteger(unittest.TestCase):
         self.assertEqual(max_integer("Dennis"), 's')
     def test_digit_string(self):
         self.assertEqual(max_integer("9652"), '9')
+    def tearDown(self):
+        self.l = None
+        self.t = None
 
 if __name__ == "__main__":
     unittest.main()
