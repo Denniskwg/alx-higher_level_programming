@@ -8,7 +8,7 @@ Default values of both attributes are 0.
 
 
 class Rectangle:
-    """A simple rectangle class"""
+    """A simple rectangle class with width and height"""
     def __init__(self, width=0, height=0):
         if type(width) != int:
             raise TypeError("width must be an integer")
@@ -24,14 +24,9 @@ class Rectangle:
             self.__height = height
     @property
     def width(self):
-        """Returns current width of rectangle"""
         return self.__width
     @width.setter
     def width(self, value):
-        """
-        Args:
-            value (int): value to set self.__width
-        """
         if type(value) != int:
             raise TypeError("width must be an integer")
         elif value < 0:
@@ -40,14 +35,9 @@ class Rectangle:
             self.__width = value
     @property
     def height(self):
-        """Returns current height of rectangle"""
         return self.__height
     @height.setter
     def height(self, value):
-        """
-        Args:
-            value (int): value to set self.__width
-        """
         if type(value) != int:
             raise TypeError("height must be an integer")
         elif value < 0:
