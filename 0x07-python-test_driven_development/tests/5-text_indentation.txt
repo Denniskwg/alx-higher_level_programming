@@ -1,0 +1,34 @@
+The ``5-text_indentation`` module
+==========================
+
+Using ``text_indentation``
+-------------------
+
+This is a text file in reStructuredText format. First import
+``text_indentation`` from the ``5-text_indentation`` module:
+
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+    >>> text_indentation(7)
+    text must be a string
+    >>> text_indentation("Dennis . kamau . Waruhiu")
+    Dennis .
+    <BLANKLINE>
+    kamau .
+    <BLANKLINE>
+    Waruhiu
+    >>> text_indentation("Dennis kamau waruhiu")
+    Dennis kamau waruhiu
+    >>> text_indentation("Dennis kamau waruhiu: ")
+    Dennis kamau waruhiu:
+    <BLANKLINE>
+    >>> text_indentation("Dennis? kamau. waruhiu: ? name")
+    Dennis?
+    <BLANKLINE>
+    kamau.
+    <BLANKLINE>
+    waruhiu:
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    name
