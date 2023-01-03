@@ -10,7 +10,14 @@ This is a text file in reStructuredText format. First import
     >>> text_indentation = __import__("5-text_indentation").text_indentation
 
     >>> text_indentation(7)
-    text must be a string
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+    >>> text_indentation([1, 2, 3, 4])
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
     >>> text_indentation("Dennis . kamau . Waruhiu")
     Dennis .
     <BLANKLINE>

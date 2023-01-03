@@ -11,11 +11,19 @@ This is a text file in reStructuredText format. First import
 
     >>> say_my_name("Dennis")
     My name is Dennis 
+
     >>> say_my_name("Dennis" "")
     My name is Dennis 
+
     >>> say_my_name(12, "kamau")
-    first_name must be a string
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
     >>> say_my_name("Dennis", "kamau")
     My name is Dennis kamau
+
     >>> say_my_name("kamau", 12)
-    last_name must be a string
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
