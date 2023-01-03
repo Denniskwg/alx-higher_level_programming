@@ -29,7 +29,7 @@ class Rectangle:
             return (self.__width + self.__height) * 2
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
-            print("")
+            return ""
         else:
             result = '\n'.join("#" * self.__width for j in range(self.__height))
             return result
