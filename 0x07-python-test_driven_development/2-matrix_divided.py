@@ -32,4 +32,9 @@ of integers/floats")
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    return [[round(l[i] / div, 2) for i in range(length)] for l in matrix]
+
+    new_matrix = []
+    for l in matrix:
+        new_matrix.append(list(map(lambda n: round(n / div, 2), l)))
+
+    return new_matrix
