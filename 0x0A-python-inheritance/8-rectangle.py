@@ -10,7 +10,7 @@ that inherits from class BaseGeometry.
 class Rectangle(BaseGeometry):
     """class that inherits from BaseGeometry"""
     def __init__(self, width, height):
-        BaseGeometry.integer_validator(self, "width", width)
+        self.integer_validator("width", width)
         self.__width = width
-        BaseGeometry.integer_validator(self, "height", height)
+        self.integer_validator("height", height)
         self.__height = height
