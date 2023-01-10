@@ -12,7 +12,7 @@ if __name__ == "__main__":
         my_List = load_from_json_file("add_item.json")
     except FileNotFoundError:
         my_List = []
-        save_to_json_file(my_list, "add_item.json")
+        save_to_json_file(my_List, "add_item.json")
 
     n = len(sys.argv)
 
