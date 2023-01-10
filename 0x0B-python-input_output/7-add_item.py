@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 
-"""7-add_item module defines a function 6-load_from_json_file
-that creates an Object from a “JSON file”.
-
-"""
+"""Add all arguments to a Python list and save them to a file."""
 import sys
 
 if __name__ == "__main__":
