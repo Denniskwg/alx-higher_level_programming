@@ -10,4 +10,4 @@ def read_file(filename=""):
     """reads and prints the contents of passed file argument"""
     with open(filename) as f:
         for line in f:
-            print(line)
+            print(line, end="")
