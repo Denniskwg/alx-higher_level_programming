@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """rectangle module defines a class Rectangle with private
 instance attributes width, height, x, y and methods area,
 display
