@@ -35,10 +35,10 @@ class Square(Rectangle):
             kwargs: dictionary of attributes to assign
         """
         if args and len(args) != 0:
-            l = list(args)
-            if len(l) > 1:
-                l.insert(2, l[1])
-            super().update(*l)
+            arg_list = list(args)
+            if len(arg_list) > 1:
+                arg_list.insert(2, arg_list[1])
+            super().update(*arg_list)
         else:
             if "size" in kwargs.keys():
                 kwargs["width"] = kwargs.get("size")
