@@ -11,12 +11,12 @@ class Rectangle(Base):
     """Rectangle class that inherits from Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        for i in [width, height, x, y]:
-            validate_int(i)
-        for j in [width, height]:
-            validate_width_and_height(j)
-        for k in [x, y]:
-            validate_x_and_y(k)
+        for k, v in {"width": width, "height": height, "x": x, "y": y}.items():
+            self.validate_int(k, v)
+        for k, v in {"width": width, "height": height}.items():
+            self.validate_width_and_height(k, v)
+        for k, v in {"x": x, "y": y}.items():
+            self.validate_x_and_y(k, v)
         self.__width = width
         self.__height = height
         self.__x = x
@@ -41,39 +41,39 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        validate_int(value)
-        validate_width_and_height(value)
+        self.validate_int("width", value)
+        self.validate_width_and_height("width", value)
         self.__width = value
 
     @height.setter
     def height(self, value):
-        validate_int(value)
-        validate_width_and_height(value)
+        self.validate_int("height", value)
+        self.validate_width_and_height("height", value)
         self.__height = value
 
     @x.setter
     def x(self, value):
-        validate_int(value)
-        validate_x_and_y(value)
+        self.validate_int("x", value)
+        self.validate_x_and_y("x", value)
         self.__x = value
 
     @y.setter
     def y(self, value):
-        validate_int(value)
-        validate_x_and_y(value)
+        self.validate_int("y", value)
+        self.validate_x_and_y("y", value)
         self.__y = value
 
     @classmethod
-    def validate_int(attribute):
-        if type(attribute) is not int:
+    def validate_int(self, attribute, value):
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(attribute))
 
     @classmethod
-    def validate_width_and_height(attribute):
-        if attribute <= 0:
+    def validate_width_and_height(self, attribute, value):
+        if value <= 0:
             raise ValueError("{} must be > 0".format(attribute))
 
     @classmethod
-    def validate_x_and_y(attribute):
-        if attribute < 0:
+    def validate_x_and_y(self, attribute, value):
+        if value < 0:
             raise ValueError("{} must be >= 0".format(attribute))
