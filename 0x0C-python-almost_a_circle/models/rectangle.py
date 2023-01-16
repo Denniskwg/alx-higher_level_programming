@@ -80,6 +80,23 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".\
            format(self.id, self.__x, self.__y, self.__width, self.__height)
 
+    def update(self, *args, **kwargs):
+        """assigns an argument to each attribute
+            args: list of attribute values to assign
+            kwargs: dictionary of attributes to assign
+        """
+        if args and len(args) != 0:
+            attrs = ["id", "width", "height", "x", "y"]
+            i = len(args)
+            idx = 0
+            while i:
+                setattr(self, attrs[idx], args[idx])
+                idx += 1
+                i -= 1
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+
     @classmethod
     def validate_int(self, attribute, value):
         if type(value) is not int:
