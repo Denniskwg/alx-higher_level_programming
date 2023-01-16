@@ -63,6 +63,9 @@ class Rectangle(Base):
         self.validate_x_and_y("y", value)
         self.__y = value
 
+    def area(self):
+        return (self.__width * self.__height)
+
     @classmethod
     def validate_int(self, attribute, value):
         if type(value) is not int:
