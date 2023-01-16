@@ -97,6 +97,14 @@ class Rectangle(Base):
             for k, v in kwargs.items():
                 setattr(self, k, v)
 
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle"""
+        return {"id": self.id,
+                "height": self.height,
+                "width": self.width,
+                "x": self.x,
+                "y": self.y}
+
     @classmethod
     def validate_int(self, attribute, value):
         if type(value) is not int:
