@@ -43,3 +43,15 @@ class Base:
             json_list = cls.to_json_string(json_list)
         with open("{}.json".format(cls.__name__), "w") as f:
             f.write(json_list)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation
+        json_string
+            json_string: json string representation of an
+            object
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
