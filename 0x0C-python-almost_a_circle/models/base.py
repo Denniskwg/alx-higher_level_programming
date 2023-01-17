@@ -36,15 +36,10 @@ class Base:
         """
         json_list = []
         if list_objs is None:
-            name = type(list_objs).__name__
             json_list = cls.to_json_string(json_list)
         else:
-            if len(list_objs) != 0:
-                name = type(list_objs).__name__
-            else:
-                name = type(list_objs).__name__
             for item in list_objs:
                 json_list.append(item.to_dictionary())
             json_list = cls.to_json_string(json_list)
-            with open("{}.json".format(name), "w") as f:
+            with open("{}.json".format(cls.__name__), "w") as f:
                 f.write(json_list)
