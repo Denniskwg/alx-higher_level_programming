@@ -6,39 +6,39 @@ import unittest
 
 from models.base import Base
 class TestBaseClass(unittest.TestCase):
-    def testBaseIntancewith_no_arg(self):
+    def test_BaseIntancewith_no_arg(self):
         base = Base()
         self.assertEqual(base.id, 1)
 
-    def testBaseIntancewithInteger(self):
+    def test_BaseIntancewithInteger(self):
         base = Base(9)
         self.assertEqual(base.id, 9)
 
-    def testBaseinstancesecond(self):
+    def test_Baseinstancesecond(self):
         base = Base()
         self.assertEqual(base.id, 2)
 
-    def testBasewithListarg(self):
+    def test_BasewithListarg(self):
         base = Base([1, 2, 3])
         self.assertEqual(base.id, [1, 2, 3])
 
-    def testBasewithNone(self):
+    def test_BasewithNone(self):
         base = Base(None)
         self.assertEqual(base.id, 3)
 
-    def testBasewithDict(self):
+    def test_BasewithDict(self):
         base = Base({"1": 2})
         self.assertEqual(base.id, {"1": 2})
 
-    def testBasewithstring(self):
+    def test_Basewithstring(self):
         base = Base("Dennis")
         self.assertEqual(base.id, "Dennis")
 
-    def testaccessprivateproperty(self):
+    def test_accessprivateproperty(self):
         with self.assertRaises(AttributeError):
             Base.__nb_objects
 
-    def testaccessprivateproperty_on_instance(self):
+    def test_accessprivateproperty_on_instance(self):
         base = Base()
         with self.assertRaises(AttributeError):
             base.__nb_objects
