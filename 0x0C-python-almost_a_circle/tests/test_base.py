@@ -70,7 +70,7 @@ class TestBaseClass(unittest.TestCase):
 
     def test_to_json_string_with_list(self):
         base = Base()
-        self.assertEqual(base.to_json_string(.to_json_string([ { 'id': 12 }]), '[{"id": 12}]')
+        self.assertEqual(base.to_json_string([ { 'id': 12 }]), '[{"id": 12}]')
 
 if __name__ == "__main__":
     unittest.main()
