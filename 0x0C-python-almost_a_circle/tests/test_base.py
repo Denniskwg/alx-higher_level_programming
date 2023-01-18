@@ -44,12 +44,13 @@ class TestBaseClass(unittest.TestCase):
             base.__nb_objects
 
     def test_to_json_string(self):
-        base = Base()
-        self.assertEqual(base.to_json_string([]), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
 
     def test_to_json_string_with_None(self):
-        base = Base()
-        self.assertEqual(base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string(None), "[]")
+
+    def test_to_json_string_with_list_string(self):
+        self.assertEqual(Base.to_json_string("[]"), '"[]"')
 
     def test_to_json_string_with_no_args(self):
         base = Base()
@@ -68,9 +69,6 @@ class TestBaseClass(unittest.TestCase):
         base = Base()
         self.assertEqual(base.to_json_string([{"1": 2}, {"2": 3}]), '[{"1": 2}, {"2": 3}]')
 
-    def test_to_json_string_with_dict2(self):
-        base = Base()
-        self.assertEqual(base.to_json_string([ { 'id': 12 }]), '[{"id": 12}]')
 
 if __name__ == "__main__":
     unittest.main()
