@@ -3,6 +3,7 @@
 
 """
 import unittest
+import json
 
 from models.base import Base
 class TestBaseClass(unittest.TestCase):
@@ -49,9 +50,6 @@ class TestBaseClass(unittest.TestCase):
     def test_to_json_string_with_None(self):
         self.assertEqual(Base.to_json_string(None), "[]")
 
-    def test_to_json_string_with_list_string(self):
-        self.assertEqual(Base.to_json_string("[]"), '"[]"')
-
     def test_to_json_string_with_no_args(self):
         base = Base()
         with self.assertRaises(TypeError):
@@ -61,13 +59,31 @@ class TestBaseClass(unittest.TestCase):
         base = Base()
         self.assertEqual(base.to_json_string("string"), '"string"')
 
-    def test_to_json_string_with_dict(self):
-        base = Base()
-        self.assertEqual(base.to_json_string({"1": 2}), '{"1": 2}')
-
     def test_to_json_string_with_list(self):
         base = Base()
         self.assertEqual(base.to_json_string([{"1": 2}, {"2": 3}]), '[{"1": 2}, {"2": 3}]')
+
+    def test_from_json_string_with_None(self):
+        self.assertEqual(Base.from_json_string(None), [])
+
+    def test_from_json_string_with_emptystring(self):
+        self.assertEqual(Base.from_json_string(""), [])
+
+    def test_from_json_string_with_dict_string(self):
+        self.assertEqual(Base.from_json_string('{"1": 2}'), {"1": 2})
+
+    def test_from_json_string_with_list_string(self):
+        self.assertEqual(Base.from_json_string('[{"1": 2}, {"2": 3}]'), [{"1": 2}, {"2": 3}])
+
+    def test_from_json_string_with_string(self):
+        self.assertEqual(Base.from_json_string('"string"'), "string")
+
+    def test_from_json_string_with_nonjson_string(self):
+        with self.assertRaises(json.decoder.JSONDecodeError):
+            Base.from_json_string("string")
+
+    def test_from_json_string_with_empty_list_string(self):
+        self.assertEqual(Base.from_json_string("[]"), [])
 
 
 if __name__ == "__main__":
