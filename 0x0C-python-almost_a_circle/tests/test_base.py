@@ -68,7 +68,7 @@ class TestBaseClass(unittest.TestCase):
         base = Base()
         self.assertEqual(base.to_json_string([{"1": 2}, {"2": 3}]), '[{"1": 2}, {"2": 3}]')
 
-    def test_to_json_string_with_list(self):
+    def test_to_json_string_with_dict2(self):
         base = Base()
         self.assertEqual(base.to_json_string([ { 'id': 12 }]), '[{"id": 12}]')
 
