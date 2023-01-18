@@ -9,11 +9,11 @@ import unittest
 class TestRectangle(unittest.TestCase):
     def test_rectangle_instantiation(self):
         rect = Rectangle(1, 1)
-        self.assertEqual(rect.to_dictionary(), {'id': 8,
-                                                'width': 1,
-                                                'height': 1,
-                                                'x': 0,
-                                                'y': 0})
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 1)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+        self.assertEqual(rect.id, 8)
 
     def test_rectangle_instantiation_without_args(self):
         with self.assertRaises(TypeError):
@@ -28,12 +28,12 @@ class TestRectangle(unittest.TestCase):
             rect = Rectangle(1, '1')
 
     def test_rectangle_instantiation_with_list_argument(self):
-            rect = Rectangle(1, 1, 1, 1)
-            self.assertEqual(rect.to_dictionary(), {'id': 9,
-                                                    'width': 1,
-                                                    'height': 1,
-                                                    'x': 1,
-                                                    'y': 1})
+        rect = Rectangle(1, 1, 1, 1)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 1)
+        self.assertEqual(rect.x, 1)
+        self.assertEqual(rect.y, 1)
+        self.assertEqual(rect.id, 9)
 
     def test_rectangle_instantiation_with_0_width(self):
         with self.assertRaises(ValueError):
@@ -60,9 +60,9 @@ class TestRectangle(unittest.TestCase):
             rect = Rectangle(1, 1, 1, -1)
 
     def test_rectangle_instantiation_with_id(self):
-        rect = Rectangle(1, 1, 1, 1, 1)
-        self.assertEqual(rect.to_dictionary(), {'id': 1,
-                                                'width': 1,
-                                                'height': 1,
-                                                'x': 1,
-                                                'y': 1})
+        rect = Rectangle(1, 1, 1, 1, 89)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 1)
+        self.assertEqual(rect.x, 1)
+        self.assertEqual(rect.y, 1)
+        self.assertEqual(rect.id, 89)
