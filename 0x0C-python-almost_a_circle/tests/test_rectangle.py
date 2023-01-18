@@ -8,9 +8,9 @@ import unittest
 
 class TestRectangle(unittest.TestCase):
     def test_rectangle_instantiation(self):
-        rect = Rectangle(1, 1)
+        rect = Rectangle(1, 2)
         self.assertEqual(rect.width, 1)
-        self.assertEqual(rect.height, 1)
+        self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
         self.assertEqual(rect.id, 8)
@@ -27,12 +27,20 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             rect = Rectangle(1, '1')
 
-    def test_rectangle_instantiation_with_list_argument(self):
-        rect = Rectangle(1, 1, 1, 1)
+    def test_rectangle_instantiation_with_4_argument(self):
+        rect = Rectangle(1, 2, 3, 4)
         self.assertEqual(rect.width, 1)
-        self.assertEqual(rect.height, 1)
-        self.assertEqual(rect.x, 1)
-        self.assertEqual(rect.y, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 4)
+        self.assertEqual(rect.id, 10)
+
+    def test_rectangle_instantiation_with_3_argument(self):
+        rect = Rectangle(1, 2, 3)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 0)
         self.assertEqual(rect.id, 9)
 
     def test_rectangle_instantiation_with_0_width(self):
@@ -59,10 +67,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             rect = Rectangle(1, 1, 1, -1)
 
-    def test_rectangle_instantiation_with_id(self):
-        rect = Rectangle(1, 1, 1, 1, 89)
+    def test_rectangle_instantiation_with_id_and_4_args(self):
+        rect = Rectangle(1, 2, 3, 4, 89)
         self.assertEqual(rect.width, 1)
-        self.assertEqual(rect.height, 1)
-        self.assertEqual(rect.x, 1)
-        self.assertEqual(rect.y, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 4)
         self.assertEqual(rect.id, 89)
