@@ -109,3 +109,17 @@ class TestRectangle(unittest.TestCase):
             rect.display()
 
         assert fake_stdout.getvalue() == "\n ##\n ##\n ##\n"
+
+    def test_to_dictionary(self):
+        r = Rectangle(1, 2)
+        self.assertEqual(r.to_dictionary(), {"id": 15,\
+            "width": 1, "height": 2, "x": 0, "y": 0})
+
+    def test_update(self):
+        r = Rectangle(1, 2)
+        r.update()
+        self.assertEqual(r.id, 16)
+        self.assertEqual(r.width, 1)
+        self.assertEqual(r.height, 2)
+        self.assertEqual(r.x, 0)
+        self.assertEqual(r.y, 0)
