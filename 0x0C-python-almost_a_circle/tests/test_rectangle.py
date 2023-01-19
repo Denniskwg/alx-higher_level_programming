@@ -15,7 +15,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 8)
+        self.assertEqual(rect.id, 9)
 
     def test_rectangle_instantiation_without_args(self):
         with self.assertRaises(TypeError):
@@ -35,7 +35,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 4)
-        self.assertEqual(rect.id, 10)
+        self.assertEqual(rect.id, 11)
 
     def test_rectangle_instantiation_with_3_argument(self):
         rect = Rectangle(1, 2, 3)
@@ -43,7 +43,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 9)
+        self.assertEqual(rect.id, 10)
 
     def test_rectangle_instantiation_with_0_width(self):
         with self.assertRaises(ValueError):
@@ -84,3 +84,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 4)
         self.assertEqual(rect.id, 89)
+
+    def test_area(self):
+        rect = Rectangle(2, 3)
+        self.assertEqual(rect.area(), 6)
+
+    def test_str_(self):
+        rect = Rectangle(1, 2)
+        self.assertEqual(str(rect), "[Rectangle] (12) 0/0 - 1/2")
