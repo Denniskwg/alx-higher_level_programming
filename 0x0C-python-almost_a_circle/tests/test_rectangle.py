@@ -140,4 +140,6 @@ class TestRectangle(unittest.TestCase):
     def test_save_to_file_with_empty_list(self):
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
-            self.assertEqual(str(f.read()), '[]')
+            with mock.patch('sys.stdout', new=io.StringIO()) as fake_stdout:
+                print(f.read())
+            assert fake_stdout.getvalue() == "[]\n"
