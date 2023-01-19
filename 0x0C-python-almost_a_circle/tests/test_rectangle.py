@@ -18,7 +18,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 11)
+        self.assertEqual(rect.id, 12)
 
     def test_rectangle_instantiation_without_args(self):
         with self.assertRaises(TypeError):
@@ -38,7 +38,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 4)
-        self.assertEqual(rect.id, 13)
+        self.assertEqual(rect.id, 14)
 
     def test_rectangle_instantiation_with_3_argument(self):
         rect = Rectangle(1, 2, 3)
@@ -46,7 +46,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 12)
+        self.assertEqual(rect.id, 13)
 
     def test_rectangle_instantiation_with_0_width(self):
         with self.assertRaises(ValueError):
@@ -94,7 +94,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_str_(self):
         rect = Rectangle(1, 2)
-        self.assertEqual(str(rect), "[Rectangle] (14) 0/0 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (15) 0/0 - 1/2")
 
     def test_display(self):
         rect = Rectangle(2, 3)
@@ -112,14 +112,22 @@ class TestRectangle(unittest.TestCase):
 
     def test_to_dictionary(self):
         r = Rectangle(1, 2)
-        self.assertEqual(r.to_dictionary(), {"id": 15,\
+        self.assertEqual(r.to_dictionary(), {"id": 16,\
             "width": 1, "height": 2, "x": 0, "y": 0})
 
     def test_update(self):
         r = Rectangle(1, 2)
         r.update()
-        self.assertEqual(r.id, 16)
+        self.assertEqual(r.id, 17)
         self.assertEqual(r.width, 1)
         self.assertEqual(r.height, 2)
+        self.assertEqual(r.x, 0)
+        self.assertEqual(r.y, 0)
+
+    def test_create(self):
+        r = Rectangle.create(**{'id': 89})
+        self.assertEqual(r.id, 89)
+        self.assertEqual(r.width, 1)
+        self.assertEqual(r.height, 1)
         self.assertEqual(r.x, 0)
         self.assertEqual(r.y, 0)
