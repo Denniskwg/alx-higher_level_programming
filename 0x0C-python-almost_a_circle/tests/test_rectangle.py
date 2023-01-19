@@ -49,7 +49,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_rectangle_instantiation_with_0_height(self):
         with self.assertRaises(ValueError):
-            rect = Rectangle(0, 1)
+            rect = Rectangle(1, 0)
 
     def test_rectangle_instantiation_with_negative_width(self):
         with self.assertRaises(ValueError):
@@ -66,6 +66,14 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_instantiation_with_negative_y(self):
         with self.assertRaises(ValueError):
             rect = Rectangle(1, 1, 1, -1)
+
+    def test_rectangle_instantiation_with_wrongtype_x(self):
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 2, "3")
+
+    def test_rectangle_instantiation_with_wrongtype_y(self):
+        with self.assertRaises(TypeError):
+            rect = Rectangle(1, 2, 3, "4")
 
     def test_rectangle_instantiation_with_id_and_4_args(self):
         rect = Rectangle(1, 2, 3, 4, 89)
