@@ -6,6 +6,9 @@
 
 from models.rectangle import Rectangle
 import unittest
+from unittest import mock
+from unittest.mock import patch
+import io
 
 class TestRectangle(unittest.TestCase):
 
@@ -15,7 +18,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 9)
+        self.assertEqual(rect.id, 10)
 
     def test_rectangle_instantiation_without_args(self):
         with self.assertRaises(TypeError):
@@ -35,7 +38,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 4)
-        self.assertEqual(rect.id, 11)
+        self.assertEqual(rect.id, 12)
 
     def test_rectangle_instantiation_with_3_argument(self):
         rect = Rectangle(1, 2, 3)
@@ -43,7 +46,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 2)
         self.assertEqual(rect.x, 3)
         self.assertEqual(rect.y, 0)
-        self.assertEqual(rect.id, 10)
+        self.assertEqual(rect.id, 11)
 
     def test_rectangle_instantiation_with_0_width(self):
         with self.assertRaises(ValueError):
@@ -91,4 +94,11 @@ class TestRectangle(unittest.TestCase):
 
     def test_str_(self):
         rect = Rectangle(1, 2)
-        self.assertEqual(str(rect), "[Rectangle] (12) 0/0 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (13) 0/0 - 1/2")
+
+    def test_display(self):
+        rect = Rectangle(2, 3)
+        with mock.patch('sys.stdout', new=io.StringIO()) as fake_stdout:
+            rect.display()
+
+        assert fake_stdout.getvalue() == "##\n##\n##\n"
