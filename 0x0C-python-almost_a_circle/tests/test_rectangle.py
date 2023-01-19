@@ -3,10 +3,12 @@
 """rectangle class unittest
 
 """
+
 from models.rectangle import Rectangle
 import unittest
 
 class TestRectangle(unittest.TestCase):
+
     def test_rectangle_instantiation(self):
         rect = Rectangle(1, 2)
         self.assertEqual(rect.width, 1)
