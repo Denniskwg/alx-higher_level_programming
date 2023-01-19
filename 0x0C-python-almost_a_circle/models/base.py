@@ -85,3 +85,51 @@ class Base:
             for el in _list:
                 instance_list.append(cls.create(**el))
             return instance_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves instance properties to a csv file in
+        csv format
+            list_objs: list of instance references
+        """
+        matrix = []
+        rect = ["id", "width", "height", "x", "y"]
+        square = ["id", "size", "x", "y"]
+        for item in list_objs:
+            list_ = []
+            item_dict = item.to_dictionary()
+            if cls.__name__ == "Rectangle":
+                for i in range(len(rect)):
+                    list_.append(str(item_dict[rect[i]]))
+                matrix.append(list_)
+            else:
+                for i in range(len(square)):
+                    list_.append(str(item_dict[square[i]]))
+                matrix.append(list_)
+
+        with open("{}.csv".format(cls.__name__), "w") as f:
+            for line in matrix:
+                f.write(",".join(line) + '\n')
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """loads and creates instances from a csv file with
+        instance properties
+        """
+        try:
+            with open("{}.csv".format(cls.__name__), "r") as f:
+                list_ = []
+                rect = ["id", "width", "height", "x", "y"]
+                square = ["id", "size", "x", "y"]
+                for line in f:
+                    list_vals = list(map(int, line.split(",")))
+                    if cls.__name__ == "Rectangle":
+                        my_dict = {k: v for (k, v) in zip(rect, list_vals)}
+                        list_.append(cls.create(**my_dict))
+                    else:
+                        my_dict = {k: v for (k, v) in zip(square, list_vals)}
+                        list_.append(cls.create(**my_dict))
+        except FileNotFoundError:
+            return []
+        else:
+            return list_
