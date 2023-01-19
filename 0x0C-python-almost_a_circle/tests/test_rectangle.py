@@ -9,6 +9,7 @@ import unittest
 from unittest import mock
 from unittest.mock import patch
 import io
+import os
 
 class TestRectangle(unittest.TestCase):
 
@@ -139,6 +140,8 @@ class TestRectangle(unittest.TestCase):
 
     def test_save_to_file_with_empty_list(self):
         Rectangle.save_to_file([])
+        isFile = os.path.isfile("Rectangle.json")
+        self.assertTrue(isFile, msg=None)
         with open("Rectangle.json", "r") as f:
             with mock.patch('sys.stdout', new=io.StringIO()) as fake_stdout:
                 print(f.read())
