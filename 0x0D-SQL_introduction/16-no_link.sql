@@ -1,7 +1,7 @@
--- lists all records from table second_table where name is present
--- database name will be passed to mysql command
--- results should display score and then name
--- records should be listed by descending order
+-- lists the number of records with the same score in the table second_table
+-- result should display score and number of records for this score
+-- list should be sorted by the number of records (descending)
+-- database name will be passed as an argument to the mysql command
 SELECT score, name
 FROM second_table
 HAVING name IS NOT NULL
