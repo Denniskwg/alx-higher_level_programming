@@ -19,6 +19,7 @@ if __name__ == "__main__":
         * FROM states WHERE name = '{}' ORDER BY id ASC;".format(name))
     rows = cur.fetchall()
     for row in rows:
-        print(row)
+        if row[1] == name:
+            print(row)
     cur.close()
     db.close()
