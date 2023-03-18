@@ -24,12 +24,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute(sql, (sys.argv[4],))
     rows = cur.fetchall()
-    for i in range(len(rows)):
-        if i < len(rows) - 1:
-            if rows[i][1] == sys.argv[4]:
-                print("{}, ".format(rows[i][0]), end="")
-        else:
-            if rows[i][1] == sys.argv[4]:
-                print(rows[i][0])
+
+    print(", ".join(row[0] for row in rows))
     cur.close()
     db.close()
