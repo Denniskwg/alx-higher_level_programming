@@ -13,7 +13,7 @@ if __name__ == "__main__":
     usr = sys.argv[1]
     passw = sys.argv[2]
     db = sys.argv[3]
-    sql = """SELECT cities.name
+    sql = """SELECT cities.name, states.name
          FROM states
          INNER JOIN cities
          ON states.id = cities.state_id
@@ -26,8 +26,10 @@ if __name__ == "__main__":
     rows = cur.fetchall()
     for i in range(len(rows)):
         if i < len(rows) - 1:
-            print("{}, ".format(rows[i][0]), end="")
+            if rows[i][1] == sys.argv[4]:
+                print("{}, ".format(rows[i][0]), end="")
         else:
-            print(rows[i][0])
+            if rows[i][1] == sys.argv[4]:
+                print(rows[i][0])
     cur.close()
     db.close()
