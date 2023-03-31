@@ -1,0 +1,2 @@
+best-case complexity O(n)
+worst-case complexity O(n)
