@@ -11,7 +11,6 @@ def find_peak(list_of_integers):
         list_of_integers -  a list of unsorted integers
     returns the peak point of a list
     """
-    sums = 0
     peak = 0
     i = 0
     index = 0
@@ -28,12 +27,9 @@ def find_peak(list_of_integers):
                 flag = 1
                 return peak
         else:
-            addition = list_of_integers[i] + list_of_integers[i + 1]
             if flag == 1:
                 index = list_of_integers.index(peak)
             else:
                 index = i + 1
-            if addition > sums:
-                sums = addition
         i = i + 1
     return list_of_integers[index]
