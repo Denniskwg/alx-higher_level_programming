@@ -12,7 +12,7 @@ def find_peak(list_of_integers):
     returns the peak point of a list
     """
     sums = 0
-    drop = 0
+    peak = 0
     i = 0
     index = 0
     flag = 0
@@ -22,15 +22,15 @@ def find_peak(list_of_integers):
         return list_of_integers[0]
     while i < len(list_of_integers) - 1:
         if list_of_integers[i] >= list_of_integers[i + 1]:
-            if drop < list_of_integers[i]:
-                drop = list_of_integers[i]
+            if peak < list_of_integers[i]:
+                peak = list_of_integers[i]
             if list_of_integers[i] == list_of_integers[i + 1]:
                 flag = 1
-                return drop
+                return peak
         else:
             addition = list_of_integers[i] + list_of_integers[i + 1]
             if flag == 1:
-                index = list_of_integers.index(drop)
+                index = list_of_integers.index(peak)
             else:
                 index = i + 1
             if addition > sums:
