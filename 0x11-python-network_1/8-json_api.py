@@ -16,7 +16,7 @@ if __name__ == "__main__":
         payload = {'q': letter}
     r = requests.post(url, data=payload)
     try:
-        rseponse = r.json()
+        response = r.json()
     except requests.exceptions.JSONDecodeError as e:
         print("Not a valid JSON")
     else:
